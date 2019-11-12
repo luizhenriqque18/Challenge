@@ -4,11 +4,9 @@ import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MainComponent} from './container/main/main.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {MaterialModule} from './container/main/material.module';
-import {SwapiService} from './shared/swapi/swapi.service';
 import {MainModule} from './container/main/main.module';
 
 

@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {People, Planet, Film, Species, Starship, Vehicle} from './model/swapi.models';
 import {catchError} from 'rxjs/operators';
-import of = module
 
 const swapiUrl = 'https://swapi.co/api/';
 
@@ -17,7 +16,7 @@ export class SwapiService {
   /**
    * Add page value url param
    */
-  //getByPage(page: number): string;
+  // getByPage(page: number): string;
   /**
    * Return list of people as observable
    */
@@ -65,39 +64,39 @@ export class SwapiService {
   /**
    * Return list of starships
    */
-  //getStarships(page?: number): Observable<Starship[]>;
+  // getStarships(page?: number): Observable<Starship[]>;
   /**
    * Return starship by id
    */
-  //getStarship(id: number): Observable<Starship>;
+  // getStarship(id: number): Observable<Starship>;
   /**
    * Search starships by name
    */
-  //searchStarships(name: string): Observable<Starship[]>;
+  // searchStarships(name: string): Observable<Starship[]>;
   /**
    * Return list of vehicles as observable
    */
-  //getVehicles(page?: number): Observable<Vehicle[]>;
+  // getVehicles(page?: number): Observable<Vehicle[]>;
   /**
    * Return vehicle by id
    */
-  //getVehicle(id: number): Observable<Vehicle>;
+  // getVehicle(id: number): Observable<Vehicle>;
   /**
    * Search vehicles by name
    */
-  //searchVehicles(name: string): Observable<Vehicle[]>;
+  // searchVehicles(name: string): Observable<Vehicle[]>;
   /**
    * Retrun list of species as observable
    */
-  //getSpecies(page?: number): Observable<Species[]>;
+  // getSpecies(page?: number): Observable<Species[]>;
   /**
    * Return species by id
    */
-  //getSpeciesById(id: number): Observable<Species>;
+  // getSpeciesById(id: number): Observable<Species>;
   /**
    * Search species by name
    */
-  //searchSpecies(name: string): Observable<Species[]>;
+  // searchSpecies(name: string): Observable<Species[]>;
   /**
    *  Return list od planets as observable
    */

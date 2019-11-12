@@ -61,6 +61,9 @@ export class MainComponent implements OnInit {
     // this.people$.subscribe((resp) => {
     //   console.log(resp);
     // });
+    this.stateCtrl.valueChanges.pipe(debounceTime(500)).subscribe((resp) => {
+      console.log(resp);
+    });
   }
 
   click(name: any) {

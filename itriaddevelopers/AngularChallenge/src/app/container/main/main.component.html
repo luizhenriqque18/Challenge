@@ -1,0 +1,35 @@
+<div class="container">
+  <header>
+    <h1>Olá</h1>
+    <h3>Star Wars</h3>
+  </header>
+  <div class="content-body">
+    <aside>
+      <div class="filter-categoria">
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let state of people$ | async" [value]="state.name">
+                <img class="example-option-img" aria-hidden [src]="state.nema" height="25">
+                <span>{{state.name}}</span> |
+                <small>Population: {{state.name}}</small>
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+        <mat-radio-group [(ngModel)]="labelPosition" (change)="click($event)">
+          <mat-radio-button class="example-margin" value="people">People</mat-radio-button>
+          <mat-radio-button class="example-margin" value="films">Films</mat-radio-button>
+          <mat-radio-button class="example-margin" value="planets">Planets</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </aside>
+    <div class="content">
+
+    </div>
+  </div>
+  <footer>
+    <p>Star Wars @ 2019</p>
+  </footer>
+</div>

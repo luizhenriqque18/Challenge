@@ -1,25 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Angular2SwapiModule } from 'angular2-swapi';
-import {MatInputModule} from '@angular/material';
-import { MainComponent } from './module/main/main.component';
+import {MainComponent} from './container/main/main.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {MaterialModule} from './container/main/material.module';
+import {SwapiService} from './shared/swapi/swapi.service';
+import {MainModule} from './container/main/main.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    Angular2SwapiModule,
-    MatInputModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MaterialModule,
+    MainModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

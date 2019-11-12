@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Angular2SwapiService, People } from 'angular2-swapi';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +6,8 @@ import {Observable} from 'rxjs';
 })
 export class AppComponent implements OnInit {
 
-  film$: Observable<People[]>;
-
-  constructor(private _swapi: Angular2SwapiService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.film$ = this._swapi.searchPeople('Luke Skywalker');
-    this.film$.subscribe(resp => {
-      console.log(resp)  ;
-    });
   }
-
-
 }

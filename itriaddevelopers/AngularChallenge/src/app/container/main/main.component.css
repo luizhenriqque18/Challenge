@@ -15,6 +15,7 @@
 .content {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   background: cornflowerblue;
   width: 70%;
 

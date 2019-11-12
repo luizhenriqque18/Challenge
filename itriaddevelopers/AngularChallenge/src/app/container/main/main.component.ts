@@ -3,12 +3,9 @@ import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {People, Film, Planet} from '../../shared/swapi/model/swapi.models';
 import {SwapiService} from '../../shared/swapi/swapi.service';
-import {debounceTime, tap} from 'rxjs/operators';
-
-export interface State {
-  id: string;
-  name: string;
-}
+import {debounceTime, map, tap} from 'rxjs/operators';
+import {MatRadioChange} from '@angular/material';
+import Cart from './model/cart';
 
 @Component({
   selector: 'app-main',
@@ -17,17 +14,13 @@ export interface State {
 })
 
 export class MainComponent implements OnInit {
-
-  public people$: Observable<People[]> = new Observable();
-  public film$: Observable<Film[]> = new Observable();
-  public planet$: Observable<Planet[]> = new Observable();
-
   private selected: string;
 
   constructor(private swapi: SwapiService) {}
 
   stateCtrl = new FormControl();
-  filteredStates: Observable<People[]>;
+  filteredStates: Observable<any> = new Observable();
+  states: Array<any>;
 
   /*private _filterStates(value: string): State[] {
     const filterValue = value.toLowerCase();
@@ -35,38 +28,53 @@ export class MainComponent implements OnInit {
     return this.states.filter(state => state.name.toLowerCase().indexOf(filterValue) === 0);
   }*/
 
-  private requestSWAPI(value: string) {
+  /*private requestSWAPI(value: string) {
     switch (this.selected) {
       case 'people':
-        //this.people$ = this.swapi.getPeople();
+        this.people$ = this.swapi.getPeoples();
         break;
       case 'films':
-        //this.film$ = this.swapi.searchFilms(value);
+        this.film$ = this.swapi.searchFilms(value);
         break;
       case 'planets':
-        //this.planet$ = this.swapi.searchPlanets(value);
+        this.planet$ = this.swapi.searchPlanets(value);
         break;
 
       default:
         console.log('erro');
     }
-  }
+  }*/
 
   ngOnInit(): void {
-    /*this.swapi.getPlanet(6).subscribe(resp => {
-      console.log(resp);
-    });*/
-    //this.stateCtrl.valueChanges.subscribe(state => this.requestSWAPI(state));
-    //this.stateCtrl.valueChanges.pipe(debounceTime(500)).subscribe(state => this.requestSWAPI(state));
-    // this.people$.subscribe((resp) => {
-    //   console.log(resp);
-    // });
     this.stateCtrl.valueChanges.pipe(debounceTime(500)).subscribe((resp) => {
       console.log(resp);
     });
+
+    this.filteredStates.subscribe( resp => {
+        this.states = resp;
+    });
   }
 
-  click(name: any) {
-    this.selected = name.value;
+  click(name: MatRadioChange) {
+    switch (name.value) {
+      case 'people':
+        this.swapi.getPeoples().subscribe( resp => {
+          this.states = resp;
+        });
+        break;
+      case 'films':
+        this.swapi.getFilms().subscribe( resp => {
+          this.states = resp;
+        });
+        break;
+      case 'planets':
+        this.swapi.getPlanets().subscribe( resp => {
+          this.states = resp;
+        });
+        break;
+
+      default:
+        console.log('erro');
+    }
   }
 }

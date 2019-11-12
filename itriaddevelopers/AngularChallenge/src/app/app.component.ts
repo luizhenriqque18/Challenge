@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   constructor(private _swapi: Angular2SwapiService) {}
 
   ngOnInit(): void {
-    this.film$ = this._swapi.getPeople();
+    this.film$ = this._swapi.searchPeople('Luke Skywalker');
     this.film$.subscribe(resp => {
       console.log(resp)  ;
     });

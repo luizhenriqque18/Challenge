@@ -6,12 +6,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SwapiService} from '../../shared/swapi/swapi.service';
 import {CardComponent} from './component/card/card.component';
 import {CardListComponent} from './component/card-list/card-list.component';
+import {ContentPeopleComponent} from './component/content-people/content-people.component';
 
 @NgModule({
   declarations: [
     MainComponent,
     CardComponent,
-    CardListComponent
+    CardListComponent,
+    ContentPeopleComponent
   ],
   imports: [
     CommonModule,

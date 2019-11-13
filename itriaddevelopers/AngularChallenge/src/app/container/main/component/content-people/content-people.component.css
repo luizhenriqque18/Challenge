@@ -1,0 +1,24 @@
+.container{
+  display: flex;
+  background: white;
+  height: 500px;
+}
+
+aside{
+  background: red;
+  width: 30%;
+}
+
+.content {
+  background: blue;
+  padding: 10px;
+  width: 100%;
+}
+
+.filter-categoria{
+  padding: 10px;
+}
+
+.full-width{
+  width: 100%;
+}

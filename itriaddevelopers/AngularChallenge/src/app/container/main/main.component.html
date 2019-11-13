@@ -4,23 +4,13 @@
     <h3>Star Wars</h3>
   </header>
   <div class="content-body">
-    <aside>
-      <div class="filter-categoria">
-        <form class="example-form">
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="State" aria-label="State" [formControl]="stateCtrl">
-          </mat-form-field>
-        </form>
-        <mat-radio-group [(ngModel)]="labelPosition" (change)="click($event)">
-          <mat-radio-button class="example-margin" value="people">People</mat-radio-button>
-          <mat-radio-button class="example-margin" value="films">Films</mat-radio-button>
-          <mat-radio-button class="example-margin" value="planets">Planets</mat-radio-button>
-        </mat-radio-group>
-      </div>
-    </aside>
-    <div class="content">
-        <app-card-list [data]="states || []" style="width: 100%"></app-card-list>
-    </div>
+    <mat-tab-group mat-align-tabs="center" class="stretched-tabs" dynamicHeight (selectedTabChange)="click($event)">
+      <mat-tab label="Personagem">
+        <app-content-people [data]=""></app-content-people>
+      </mat-tab>
+      <mat-tab label="Filmes"> </mat-tab>
+      <mat-tab label="Planetas"></mat-tab>
+    </mat-tab-group>
   </div>
   <footer>
     <p>Star Wars @ 2019</p>

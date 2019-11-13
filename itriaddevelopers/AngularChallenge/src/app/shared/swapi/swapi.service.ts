@@ -62,6 +62,13 @@ export class SwapiService {
     }).pipe( catchError(this.handleError<Film[]>('films')));
   }
   /**
+   * Search films by title
+   */
+  getUrlFilms(url: string): Observable<Film[]> {
+    return this.http.get<Film[]>(`${url}`).
+    pipe( catchError(this.handleError<Film[]>('films URL')));
+  }
+  /**
    * Return list of starships
    */
   // getStarships(page?: number): Observable<Starship[]>;

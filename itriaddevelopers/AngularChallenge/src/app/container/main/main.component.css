@@ -46,3 +46,7 @@ footer{
 .stretched-tabs {
   width: 100%;
 }
+
+.mat-tab-label {
+  width: 50%;
+}

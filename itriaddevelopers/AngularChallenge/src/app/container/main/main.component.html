@@ -4,9 +4,9 @@
     <h3>Star Wars</h3>
   </header>
   <div class="content-body">
-    <mat-tab-group mat-align-tabs="center" class="stretched-tabs" dynamicHeight (selectedTabChange)="click($event)">
+    <mat-tab-group mat-align-tabs="center" class="stretched-tabs"  style="min-height: 100%" dynamicHeight="true" (selectedTabChange)="click($event)">
       <mat-tab label="Personagem">
-        <app-content-people [data]=""></app-content-people>
+        <app-content-people style="min-height: 100%"></app-content-people>
       </mat-tab>
       <mat-tab label="Filmes"> </mat-tab>
       <mat-tab label="Planetas"></mat-tab>

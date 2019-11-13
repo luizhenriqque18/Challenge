@@ -7,13 +7,19 @@ import {SwapiService} from '../../shared/swapi/swapi.service';
 import {CardComponent} from './component/card/card.component';
 import {CardListComponent} from './component/card-list/card-list.component';
 import {ContentPeopleComponent} from './component/content-people/content-people.component';
+import {DialogContentPeopleComponent} from './component/dialog-content-people/dialog-content-people.component';
+import {DialogDetailComponent} from './component/dialog-detail/dialog-detail.component';
+import {CardFilmComponent} from './component/card-film/card-film.component';
 
 @NgModule({
   declarations: [
     MainComponent,
     CardComponent,
     CardListComponent,
-    ContentPeopleComponent
+    ContentPeopleComponent,
+    CardFilmComponent,
+    DialogDetailComponent,
+    DialogContentPeopleComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +32,7 @@ import {ContentPeopleComponent} from './component/content-people/content-people.
     MainComponent
   ],
   providers: [SwapiService],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  entryComponents: [DialogContentPeopleComponent]
 })
 export class MainModule { }

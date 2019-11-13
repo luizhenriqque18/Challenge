@@ -25,7 +25,6 @@ export class ContentPeopleComponent implements OnInit {
     this.stateCtrl.valueChanges.pipe(debounceTime(500)).subscribe((resp) => {
       this.swapi.searchPeople(resp).subscribe( a => {
         this.states = a;
-        console.log(this.states);
       });
     });
 

@@ -2,6 +2,8 @@
   "name": "angular-challenge",
   "version": "0.0.0",
   "scripts": {
+    "start": "node server.js",
+    "postinstall": "ng build --aot --prod",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -22,6 +24,7 @@
     "@angular/platform-browser-dynamic": "~8.2.12",
     "@angular/router": "~8.2.12",
     "angular2-swapi": "0.0.2",
+    "express": "^4.17.1",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.5.3",
     "tslib": "^1.10.0",
@@ -47,5 +50,9 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
+  },
+  "engines": {
+    "node": "12.13.0",
+    "npm": "6.12.1"
   }
 }

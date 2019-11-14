@@ -6,8 +6,9 @@
 }
 
 aside{
+  display: flex;
   background: red;
-  width: 30%;
+  width: 40%;
 }
 
 .content {
@@ -17,6 +18,9 @@ aside{
 }
 
 .filter-categoria{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 10px;
 }
 

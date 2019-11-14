@@ -10,8 +10,8 @@
   <p>{{ data.homeworld }}</p>
   <mat-tab-group  mat-align-tabs="center">
     <mat-tab label="Participação(ões) em filme(s)">
-      <div>
-        <app-card-film  [dataFilms]="films"></app-card-film>
+      <div style="padding: 10px; display: flex; flex-wrap: wrap; justify-content: space-around">
+        <app-card-film *ngFor="let film of films || []" [dataFilms]="film"></app-card-film>
       </div>
     </mat-tab>
   </mat-tab-group>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
-import {People, Planet, Film, Species, Starship, Vehicle} from './model/swapi.models';
+import {People, Planet, Film, Species, Starship, Vehicle, PagesPeople} from './model/swapi.models';
 import {catchError} from 'rxjs/operators';
 
 const swapiUrl = 'https://swapi.co/api/';
@@ -20,24 +20,24 @@ export class SwapiService {
   /**
    * Return list of people as observable
    */
-  getPeoples(page?: number): Observable<People[]> {
-    return this.http.get<People[]>(`${swapiUrl}people/${page || ''}`).
-      pipe( catchError(this.handleError<People[]>('people')));
+  getPagePeoples(page?: number): Observable<PagesPeople> {
+    return this.http.get<PagesPeople>(`${swapiUrl}people/?page=${page || 1}`).
+      pipe( catchError(this.handleError<PagesPeople>('people')));
   }
   /**
    * Return people by id
    */
-  getPeople(id: number): Observable<People> {
-    return this.http.get<People>(`${swapiUrl}people/${id}/`).
-    pipe( catchError(this.handleError<People>('people')));
+  getPeople(id: number): Observable<PagesPeople> {
+    return this.http.get<PagesPeople>(`${swapiUrl}people/${id}/`).
+    pipe( catchError(this.handleError<PagesPeople>('people')));
   }
   /**
    * Search people by name
    */
-  searchPeople(name: string): Observable<People[]> {
-    return this.http.get<People[]>(`${swapiUrl}people/`, {
+  searchPeople(name: string, page?: number): Observable<PagesPeople> {
+    return this.http.get<PagesPeople>(`${swapiUrl}people/?page=${page || 1}`, {
       params: new HttpParams().set('search', name)
-    }).pipe( catchError(this.handleError<People[]>('people')));
+    }).pipe( catchError(this.handleError<PagesPeople>('people')));
   }
   /**
    * Return list of films as observable

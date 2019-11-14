@@ -103,3 +103,24 @@ export interface Planet {
   created: Date;
   edited: Date;
 }
+
+export interface PagesPeople {
+  count: number;
+  next: string;
+  previous: string;
+  results: Array<People>;
+}
+
+export interface PagesPlanet {
+  count: number;
+  next: string;
+  previous: string;
+  results: Array<Planet>;
+}
+
+export interface PagesFilm {
+  count: number;
+  next: string;
+  previous: string;
+  results: Array<Film>;
+}

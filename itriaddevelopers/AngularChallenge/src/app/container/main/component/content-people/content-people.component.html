@@ -6,6 +6,12 @@
           <input matInput placeholder="Personagem" aria-label="Personagem" [formControl]="stateCtrl">
         </mat-form-field>
       </form>
+      <mat-paginator [pageIndex]="pageEvent?.pageIndex "
+                     [length]="length"
+                     [pageSize]="pageSize"
+                     [pageSizeOptions]="pageSizeOptions"
+                     (page)="pageEvent = nextOrPrevious($event)">
+      </mat-paginator>
     </div>
   </aside>
 
